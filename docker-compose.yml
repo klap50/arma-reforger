@@ -1,0 +1,28 @@
+---
+version: '3.8'
+services:
+  arma-reforger:
+    image: ghcr.io/acemod/arma-reforger:latest
+    platform: linux/amd64
+    container_name: arma-reforger
+    ports:
+      - "2001:2001/udp"
+      - "17777:17777/udp"
+      - "19999:19999/udp"
+      - "2002:2002/udp"
+    volumes:
+      - ./reforger/configs:/reforger/Configs
+      - ./reforger/profile:/home/profile
+      - ./reforger/workshop:/reforger/workshop
+
+    environment:
+      # - SERVER_PUBLIC_ADDRESS=0.0.0.0
+      - GAME_NAME=FWS LATAM TESTHQ50
+      - RCON_PASSWORD="ALGUNPASSWORD"
+      # - GAME_HOST_BIND_ADDRESS=0.0.0.0
+      # - GAME_HOST_BIND_PORT=2001
+      # - GAME_HOST_REGISTER_BIND_ADDRESS=0.0.0.0
+      # - GAME_HOST_REGISTER_PORT=2001
+      - ADMIN_PASSWORD=ALGUNPASSWORD
+      - PLAYER_COUNT_LIMIT=140
+      - BATTLEEYE=false
